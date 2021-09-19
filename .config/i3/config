@@ -44,7 +44,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # start a terminal without tmux
-bindsym $mod+Shift+Return exec DISABLE_ZSH_TMUX=true st
+bindsym $mod+Shift+Return exec DISABLE_ZSH_TMUX=true alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
