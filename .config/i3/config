@@ -41,7 +41,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal with tmux
-bindsym $mod+Return exec st
+bindsym $mod+Return exec alacritty
 
 # start a terminal without tmux
 bindsym $mod+Shift+Return exec DISABLE_ZSH_TMUX=true st
@@ -188,6 +188,7 @@ bar {
 # User defined stuff ##
 #######################
 
+set $TERMCMD         alacritty
 set $WEBBROWSERCLASS Brave-browser
 set $WEBBROWSER      brave
 set $SYSMONITORCMD   btm
@@ -198,7 +199,7 @@ bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less    move workspace to output left
 
 # Startup
-exec --no-startup-id ~/.config/i3/workspaces/scripts/workspace-1.sh $ws1 st $SYSMONITORCMD $VISCMD
+exec --no-startup-id ~/.config/i3/workspaces/scripts/workspace-1.sh $ws1 $TERMCMD $SYSMONITORCMD $VISCMD
 exec --no-startup-id ~/.config/i3/workspaces/scripts/workspace-5.sh $ws5
 exec pasystray
 exec slack
@@ -216,8 +217,8 @@ for_window [class="Xfce4-terminal" id=16777219 instance="xfce4-terminal" title="
 
 # Applications
 bindsym $mod+Shift+s   exec slack
-bindsym $mod+g         exec st $SYSMONITORCMD
-bindsym $mod+Shift+v   exec st $VISCMD
+bindsym $mod+g         exec $TERMCMD -e $SYSMONITORCMD
+bindsym $mod+Shift+v   exec $TERMCMD -e $VISCMD
 bindsym $mod+Shift+x   exec i3lock -c 000000
 bindsym $mod+m         exec spotify
 bindsym $mod+i         exec $WEBBROWSER

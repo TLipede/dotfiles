@@ -47,12 +47,6 @@ windows:
       # synchronize: after
       panes:
         - clear
-  - jupyter:
-      panes:
-        - jupyter-lab --no-browser   
   - pluto:
       panes:
         - pluto
-  - blackd:
-      panes:
-        - blackd
