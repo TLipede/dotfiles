@@ -78,7 +78,7 @@ eval "$(zoxide init zsh)"
 # PyEnv #
 zinit ice atclone='git clone git@github.com:pyenv/pyenv-virtualenv \
     "$PWD/plugins/pyenv-virtualenv"' atinit='export PYENV_ROOT="$PWD"' atpull="%atclone" \
-    atload='export PYENV_VIRTUALENV_DISABLE_PROMPT=1; eval "$(pyenv init -)"; 
+    atload='export PYENV_VIRTUALENV_DISABLE_PROMPT=1; eval "$(pyenv init --path)";  eval "$(pyenv init -)";
     eval "$(pyenv virtualenv-init -)"; alias pyenv="CONFIG_OPTS=--enable-shared pyenv"' \
     as='command' pick='bin/pyenv' nocompile='!' wait lucid
 zinit light pyenv/pyenv
