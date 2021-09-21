@@ -68,8 +68,12 @@ zinit snippet OMZL::history.zsh
 zinit wait'!' lucid light-mode for \
 	OMZL::key-bindings.zsh
 
-# Dotfiles-sync #
 
+# Starship #
+eval "$(starship init zsh)"
+
+# Zoxide #
+eval "$(zoxide init zsh)"
 
 # PyEnv #
 zinit ice atclone='git clone git@github.com:pyenv/pyenv-virtualenv \
@@ -91,6 +95,3 @@ zplugin ice atclone='POETRY_HOME="$PWD" python ./install-poetry.py;
            atpull="%atclone" atload='PATH+="$PWD/bin"' \
            as='command' pick'bin/poetry' wait lucid
 zplugin light python-poetry/poetry
-
-# Starship #
-eval "$(starship init zsh)"

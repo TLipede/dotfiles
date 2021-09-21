@@ -4,18 +4,19 @@
     "current_border_width": 0,
     "floating": "auto_off",
     "geometry": {
-       "height": 408,
-       "width": 640,
+       "height": 600,
+       "width": 800,
        "x": 0,
        "y": 0
     },
-    "name": "st",
+    "marks": [],
+    "name": "Alacritty",
     "percent": 0.5,
     "swallows": [
        {
-        "class": "^St$",
-        "instance": "^st$",
-        "title": "^st$"
+         "class": "^Alacritty$",
+         "instance": "^Alacritty$",
+         "title": "^Alacritty$"
        }
     ],
     "type": "con"
@@ -26,6 +27,7 @@
     "border": "normal",
     "floating": "auto_off",
     "layout": "splitv",
+    "marks": [],
     "percent": 0.5,
     "type": "con",
     "nodes": [
@@ -34,18 +36,19 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 408,
-               "width": 640,
+               "height": 600,
+               "width": 800,
                "x": 0,
                "y": 0
             },
-            "name": "btm",
+            "marks": [],
+            "name": "Alacritty",
             "percent": 0.8,
             "swallows": [
                {
-                "class": "^St$",
-                "instance": "^st$",
-                "title": "^btm$"
+                 "class": "^Alacritty$",
+                 "instance": "^Alacritty$",
+                 "title": "^Alacritty$"
                }
             ],
             "type": "con"
@@ -55,18 +58,19 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 408,
-               "width": 640,
+               "height": 600,
+               "width": 800,
                "x": 0,
                "y": 0
             },
-            "name": "vis",
+            "marks": [],
+            "name": "Alacritty",
             "percent": 0.2,
             "swallows": [
                {
-                "class": "^St$",
-                "instance": "^st$",
-                "title": "^vis$"
+                 "class": "^Alacritty$",
+                 "instance": "^Alacritty$",
+                 "title": "^Alacritty$"
                }
             ],
             "type": "con"
