@@ -1,3 +1,5 @@
 **/.idea/*
 .dotfiles
 .is_server
+.python-version
+**/.vscode/*

@@ -93,6 +93,6 @@ zinit light asdf-vm/asdf
 zplugin ice atclone='POETRY_HOME="$PWD" python ./install-poetry.py;
            "./bin/poetry" completions zsh > _poetry;
            zinit creinstall -q "$PWD"' \
-           atpull="%atclone" atload='PATH+="$PWD/bin"' \
+           atpull="%atclone" atload='PATH+=":$PWD/bin"' \
            as='command' pick'bin/poetry' wait lucid
 zplugin light python-poetry/poetry

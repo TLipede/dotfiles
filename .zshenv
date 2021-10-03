@@ -1,5 +1,5 @@
 #### System Exports ####
-export PATH="$PATH:/snap/bin:/home/tlipede/bin:/home/tlipede/.local/AppImage"
+export PATH="$PATH:/snap/bin:/home/tlipede/bin:/home/tlipede/.local/AppImage:/home/tlipede/.cargo/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt"
 export EDITOR='kak'
 export TERMINAL='st'
