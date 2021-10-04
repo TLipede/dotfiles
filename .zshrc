@@ -38,7 +38,7 @@ alias pluto='MESA_LOADER_DRIVER_OVERRIDE=i965 julia --threads=auto -e "using Plu
 #### Tmux ####
 if [ ! -v DISABLE_ZSH_TMUX ] | [ ! "${DISABLE_ZSH_TMUX}" ]
 then
-    tmuxinator default
+    tmuxinator $TMUXINATOR_PROFILE
 fi
 
 #### Functions ####
