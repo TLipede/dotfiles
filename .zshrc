@@ -81,12 +81,12 @@ zinit ice atclone='git clone git@github.com:pyenv/pyenv-virtualenv \
     "$PWD/plugins/pyenv-jupyter-kernel"' atinit='export PYENV_ROOT="$PWD"' atpull="%atclone" \
     atload='export PYENV_VIRTUALENV_DISABLE_PROMPT=1; eval "$(pyenv init --path)";  eval "$(pyenv init -)";
     eval "$(pyenv virtualenv-init -)"; alias pyenv="CONFIG_OPTS=--enable-shared pyenv"' \
-    as='command' pick='bin/pyenv' nocompile='!' wait lucid
+    as='command' pick='bin/pyenv' nocompile='!' lucid
 zinit light pyenv/pyenv
 
 # ASDF-VM #
 zinit ice atpull'zinit creinstall -q "$PWD"' atinit'. $PWD/asdf.sh' \
-    as='command' pick='bin/asdf' wait lucid
+    as='command' pick='bin/asdf' lucid
 zinit light asdf-vm/asdf
  
 # Poetry #
