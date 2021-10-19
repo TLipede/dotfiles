@@ -204,7 +204,6 @@ exec --no-startup-id ~/.config/i3/workspaces/scripts/workspace-5.sh $ws5
 exec pasystray
 exec slack
 exec teams
-exec notion-app
 exec blueman-applet
 exec xfce4-power-manager
 exec blackd
