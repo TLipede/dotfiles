@@ -4,3 +4,4 @@
 .python-version
 **/.vscode/*
 **/.zinit/completions/*
+*.code-workspace

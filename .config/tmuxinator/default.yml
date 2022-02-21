@@ -47,6 +47,7 @@ windows:
       # synchronize: after
       panes:
         - clear
-  - pluto:
+  - notebooks:
       panes:
         - pluto
+        - jupyter-lab --no-browser

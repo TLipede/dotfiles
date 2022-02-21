@@ -1,6 +1,6 @@
 #### System Exports ####
 export PATH="$PATH:/snap/bin:/home/tlipede/bin:/home/tlipede/.local/AppImage:/home/tlipede/.cargo/bin:/home/tlipede/.local/share/gem/ruby/3.0.0/bin"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt:/usr/lib"
 export EDITOR='kak'
 export TERMINAL='st'
 export XDG_CONFIG_HOME='/home/tlipede/.config'
