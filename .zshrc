@@ -30,40 +30,28 @@ alias stopwebcam='( cd $repos/Linux-Fake-Background-Webcam && docker-compose sto
 alias tmux='tmux -2'
 alias exa='exa --icons'
 alias spython='python -m IPython'
-alias julia='LD_LIBRARY_PATH="" JULIA_PKG_USE_CLI_GIT=true julia'
-alias jlpkg='LD_LIBRARY_PATH="" JULIA_PKG_USE_CLI_GIT=true jlpkg'
-alias pluto='MESA_LOADER_DRIVER_OVERRIDE=i965 julia --threads=auto -e "using Pluto; \
-  Pluto.run(; launch_browser=false, require_secret_for_access=false)"'
+alias julia="$JULIA_ARGS julia"
+alias juliatemp="$JULIA_ARGS julia --project=$(mktemp -d)"
+alias jlpkg="$JULIA_ARGS jlpkg"
 
-#### Tmux ####
-if [ ! -v DISABLE_ZSH_TMUX ] | [ ! "${DISABLE_ZSH_TMUX}" ]
+#### Zellij  ####
+if [ ! -v DISABLE_ZSH_ZELLIJ ] | [ ! "${DISABLE_ZSH_ZELLIJ}" ]
 then
-    tmuxinator $TMUXINATOR_PROFILE
+    cat "$HOME/.cache/wal/sequences"
+    session_exists="$(zellij ls | grep default | wc -l)"
+    if [[ $session_exists -eq 1 ]]
+    then
+        zellij a default
+    else
+        DISABLE_ZSH_ZELLIJ=1 zellij -l default.yml -s default
+    fi
 fi
 
 # Starship #
 eval "$(starship init zsh)"
 
 #### Functions ####
-aws-set () { export AWS_PROFILE=$1 }
-clone-or-update () {
-  if [[ $# -gt 2 ]]; then
-    echo "Too many arguments."
-    return 1
-  elif [[ $# -lt 2 ]]; then
-    echo "Must supply 2 arguments: repo and folder"
-    return 1
-  fi
-
-  repo="$1"
-  folder="$2"
-
-  if [[ ! -d "$folder" ]]; then
-    git clone "$repo" "$folder"
-  else
-    (cd "$folder" && git pull)
-  fi
-}
+source "$HOME/.zfuncs"
 
 #### ZI ####
 
@@ -72,14 +60,14 @@ zi snippet OMZL::history.zsh
 zi wait'!' lucid light-mode for \
   OMZL::key-bindings.zsh
 
+# Syntax Highlighting #
+zi ice atinit"zicompinit; zicdreplay" wait'!' lucid
+zi light zsh-users/zsh-syntax-highlighting
+
 # History substring search #
 zi light zsh-users/zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-# Syntax Highlighting #
-zi ice atinit"zicompinit; zicdreplay" wait'!' lucid
-zi light zsh-users/zsh-syntax-highlighting
 
 # PyEnv #
 zi ice atclone='clone-or-update git@github.com:pyenv/pyenv-virtualenv "$PWD/plugins/pyenv-virtualenv" && \
@@ -100,3 +88,6 @@ zi ice atclone='POETRY_HOME="$PWD" python ./install-poetry.py;
            atpull="%atclone" atload='PATH+=":$PWD/bin"' \
            as='command' pick'bin/poetry' wait lucid
 zi light python-poetry/poetry
+
+# PyWal
+cat "$HOME/.cache/wal/sequences" && clear
