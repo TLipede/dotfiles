@@ -3,7 +3,7 @@ export PATH="$PATH:/snap/bin:$HOME/bin:$HOME/local/AppImage:$HOME/.cargo/bin:$HO
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt:/usr/lib"
 export EDITOR='kak'
 export TERMINAL='st'
-export XDG_CONFIG_HOME='$HOME/.config'
+export XDG_CONFIG_HOME="$HOME/.config"
 
 
 #### Config-related Exports ####
