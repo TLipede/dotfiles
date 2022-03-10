@@ -1,0 +1,24 @@
+aws-set () { export AWS_PROFILE=$1 }
+clone-or-update () {
+  if [[ $# -gt 2 ]]; then
+    echo "Too many arguments."
+    return 1
+  elif [[ $# -lt 2 ]]; then
+    echo "Must supply 2 arguments: repo and folder"
+    return 1
+  fi
+
+  repo="$1"
+  folder="$2"
+
+  if [[ ! -d "$folder" ]]; then
+    git clone "$repo" "$folder"
+  else
+    (cd "$folder" && git pull)
+  fi
+}
+pluto () {
+  jcmd="$JULIA_ARGS julia --threads=auto -e"
+  pluto_cmd="${jcmd} 'using Pluto; Pluto.run(; launch_browser=false, require_secret_for_access=false)'"
+  eval "$pluto_cmd"
+}
