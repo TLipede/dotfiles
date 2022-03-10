@@ -40,11 +40,11 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal with tmux
+# start a terminal with zellij
 bindsym $mod+Return exec alacritty
 
-# start a terminal without tmux
-bindsym $mod+Shift+Return exec DISABLE_ZSH_TMUX=true alacritty
+# start a terminal without zellij
+bindsym $mod+Shift+Return exec DISABLE_ZSH_ZELLIJ=1 alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -221,7 +221,7 @@ bindsym $mod+Shift+v   exec $TERMCMD -e $VISCMD
 bindsym $mod+Shift+x   exec i3lock -c 000000
 bindsym $mod+m         exec spotify
 bindsym $mod+i         exec $WEBBROWSER
-
+bindsym $mod+Shift+w   exec $WALCMD -R
 
 # Media
 bindsym XF86AudioPlay  exec playerctl play-pause
