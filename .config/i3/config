@@ -193,7 +193,7 @@ set $WEBBROWSERCLASS Brave-browser
 set $WEBBROWSER      brave
 set $SYSMONITORCMD   btm
 set $WALCMD          wal
-set $VISCMD          vis -c ~/.config/vis/config
+set $VISCMD          cava
 
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less    move workspace to output left

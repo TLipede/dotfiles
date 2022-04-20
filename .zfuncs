@@ -19,6 +19,5 @@ clone-or-update () {
 }
 pluto () {
   jcmd="$JULIA_ARGS julia --threads=auto -e"
-  pluto_cmd="${jcmd} 'using Pluto; Pluto.run(; launch_browser=false, require_secret_for_access=false)'"
-  eval "$pluto_cmd"
+  eval "${jcmd} 'using Pluto; Pluto.run(; launch_browser=false, require_secret_for_access=false)'"
 }
