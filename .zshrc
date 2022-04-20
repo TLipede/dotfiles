@@ -34,6 +34,7 @@ alias spython='python -m IPython'
 alias julia="$JULIA_ARGS julia"
 alias juliatemp="$JULIA_ARGS julia --project=$(mktemp -d)"
 alias jlpkg="$JULIA_ARGS jlpkg"
+alias workstation="ENABLE_ZSH_ZELLIJ=1 ssh workstation"
 
 #### Functions ####
 source "$HOME/.zfuncs"
