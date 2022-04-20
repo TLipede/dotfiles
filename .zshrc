@@ -35,24 +35,16 @@ alias julia="$JULIA_ARGS julia"
 alias juliatemp="$JULIA_ARGS julia --project=$(mktemp -d)"
 alias jlpkg="$JULIA_ARGS jlpkg"
 
+#### Functions ####
+source "$HOME/.zfuncs"
+
 #### Zellij  ####
-if [ ! -v DISABLE_ZSH_ZELLIJ ] | [ ! "${DISABLE_ZSH_ZELLIJ}" ]
-then
-    cat "$HOME/.cache/wal/sequences"
-    session_exists="$(zellij ls | grep default | wc -l)"
-    if [[ $session_exists -eq 1 ]]
-    then
-        zellij a default
-    else
-        DISABLE_ZSH_ZELLIJ=1 zellij -l default.yml -s default
-    fi
+if [ ! -v DISABLE_ZSH_ZELLIJ ] | [ ! "${DISABLE_ZSH_ZELLIJ}" ]; then
+  zellij-default
 fi
 
 # Starship #
 eval "$(starship init zsh)"
-
-#### Functions ####
-source "$HOME/.zfuncs"
 
 #### Zinit ####
 
@@ -90,5 +82,3 @@ zinit ice atclone='POETRY_HOME="$PWD" python ./install-poetry.py;
            as='command' pick'bin/poetry' wait lucid
 zinit light python-poetry/poetry
 
-# PyWal
-cat "$HOME/.cache/wal/sequences" && clear

@@ -17,7 +17,18 @@ clone-or-update () {
     (cd "$folder" && git pull)
   fi
 }
+
 pluto () {
   jcmd="$JULIA_ARGS julia --threads=auto -e"
   eval "${jcmd} 'using Pluto; Pluto.run(; launch_browser=false, require_secret_for_access=false)'"
+}
+
+zellij-default () {
+  session_exists="$(zellij ls | grep $ZELLIJ_DEFAULT_SESSION_NAME | wc -l)"
+  if [[ $session_exists -eq 1 ]]; then
+    DISABLE_ZSH_ZELLIJ=1 zellij a $ZELLIJ_DEFAULT_SESSION_NAME
+  else
+    DISABLE_ZSH_ZELLIJ=1 zellij -l $ZELLIJ_DEFAULT_PROFILE -s $ZELLIJ_DEFAULT_SESSION_NAME
+  fi
+  return 0
 }
