@@ -19,10 +19,6 @@ export MACHINE_TYPE="$(
         echo "UNKNOWN"
     fi)"
 
-if [[ ! -v REMOTE_ID ]]; then
-  export REMOTE_ID="$(cat /dev/urandom | tr -dc '0-9a-zA-Z' | head -c10)"
-fi
-
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   export SESSION_TYPE=remote/ssh
 # many other tests omitted
@@ -39,11 +35,13 @@ export MACHINE_ID="$(
     else
       echo UNKNOWN
     fi
+  else
+    echo $MACHINE_ID
   fi)"
 
 export ZELLIJ_DEFAULT_SESSION_NAME="$(
   if [[ $SESSION_TYPE == 'remote/ssh' ]]; then
-    echo default-remote-$REMOTE_ID
+    echo default-remote-$MACHINE_ID
   else
     echo default
   fi)"       

@@ -39,7 +39,7 @@ alias jlpkg="$JULIA_ARGS jlpkg"
 source "$HOME/.zfuncs"
 
 #### Zellij  ####
-if [ ! -v DISABLE_ZSH_ZELLIJ ] | [ ! "${DISABLE_ZSH_ZELLIJ}" ]; then
+if [[ "${ENABLE_ZSH_ZELLIJ}" -eq 1 ]]; then
   zellij-default
 fi
 
