@@ -1,15 +1,15 @@
 ---
 template:
-  direction: Horizontal
+  direction: "Horizontal"
   parts:
-    - direction: Vertical
+    - direction: "Vertical"
       borderless: true
       split_size:
         Fixed: 1
       run:
         plugin:
           location: "zellij:tab-bar"
-    - direction: Vertical
+    - direction: "Vertical"
       body: true
 tabs:
   - name: "terminal"
