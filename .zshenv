@@ -1,5 +1,5 @@
 #### System Exports ####
-export PATH="$PATH:/snap/bin:$HOME/bin:$HOME/local/AppImage:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin"
+export PATH="$PATH:/snap/bin:$HOME/bin:$HOME/local/AppImage:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:/opt/homebrew/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt:/usr/lib"
 export EDITOR='kak'
 export TERMINAL='alacritty'
@@ -47,7 +47,7 @@ export ZELLIJ_DEFAULT_SESSION_NAME="$(
   fi)"       
 
 # TODO: Separate profile for notebook servers?
-export ZELLIJ_DEFAULT_PROFILE=default.yml
+export ZELLIJ_DEFAULT_PROFILE="$HOME/.config/zellij/layouts/default.kdl"
 
 #### Folder Shortcuts ####
 export repos="$HOME/Documents/Repositories"
@@ -56,3 +56,4 @@ export projects="$HOME/Documents/Projects"
 #### User Exports ####
 export JULIA_ARGS='LD_LIBRARY_PATH="" JULIA_PKG_USE_CLI_GIT=true MESA_LOADER_OVERRIDE=i965'
 
+. "$HOME/.cargo/env"
