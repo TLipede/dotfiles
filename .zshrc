@@ -34,7 +34,6 @@ alias spython='python -m IPython'
 alias julia="$JULIA_ARGS julia"
 alias juliatemp="$JULIA_ARGS julia --project=$(mktemp -d)"
 alias jlpkg="$JULIA_ARGS jlpkg"
-alias workstation="ENABLE_ZSH_ZELLIJ=1 ssh workstation"
 
 #### Functions ####
 source "$HOME/.zfuncs"
@@ -46,6 +45,9 @@ fi
 
 # Starship #
 eval "$(starship init zsh)"
+
+# Direnv #
+eval "$(direnv hook zsh)"
 
 #### Zinit ####
 
@@ -81,5 +83,5 @@ zinit ice atclone='POETRY_HOME="$PWD" python ./install-poetry.py;
            zinit creinstall -q "$PWD"' \
            atpull="%atclone" atload='PATH+=":$PWD/bin"' \
            as='command' pick'bin/poetry' wait lucid
-zinit light python-poetry/poetry
+zinit light python-poetry/install.python-poetry.org
 
