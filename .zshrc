@@ -34,6 +34,7 @@ alias spython='python -m IPython'
 alias julia="$JULIA_ARGS julia"
 alias juliatemp="$JULIA_ARGS julia --project=$(mktemp -d)"
 alias jlpkg="$JULIA_ARGS jlpkg"
+alias workstation="ENABLE_ZSH_ZELLIJ=1 ssh workstation"
 
 #### Functions ####
 source "$HOME/.zfuncs"
@@ -45,9 +46,6 @@ fi
 
 # Starship #
 eval "$(starship init zsh)"
-
-# Direnv #
-eval "$(direnv hook zsh)"
 
 #### Zinit ####
 
@@ -69,7 +67,7 @@ bindkey '^[[B' history-substring-search-down
 zinit ice atclone='clone-or-update git@github.com:pyenv/pyenv-virtualenv "$PWD/plugins/pyenv-virtualenv" && \
   clone-or-update git@github.com:aiguofer/pyenv-jupyter-kernel "$PWD/plugins/pyenv-jupyter-kernel"' \
   atinit='export PYENV_ROOT="$PWD"' atpull="%atclone" atload='export PYENV_VIRTUALENV_DISABLE_PROMPT=1; \
-  eval "$(pyenv init --path)"; eval "$(pyenv init -)"; eval "$(pyenv virtualenv-init -)"; \
+  eval "$(pyenv init -)"; eval "$(pyenv virtualenv-init -)"; \
   alias pyenv="CONFIG_OPTS=--enable-shared pyenv"' as='command' pick='bin/pyenv' nocompile='!' lucid
 zinit light pyenv/pyenv
 
@@ -78,10 +76,15 @@ zinit ice atpull'zinit creinstall -q "$PWD"' atinit'. "$PWD/asdf.sh"' as='comman
 zinit light asdf-vm/asdf
 
 # Poetry #
-zinit ice atclone='POETRY_HOME="$PWD" python ./install-poetry.py;
+zinit ice atclone='POETRY_HOME="$PWD"
            "./bin/poetry" completions zsh > _poetry;
            zinit creinstall -q "$PWD"' \
            atpull="%atclone" atload='PATH+=":$PWD/bin"' \
            as='command' pick'bin/poetry' wait lucid
-zinit light python-poetry/install.python-poetry.org
+zinit light python-poetry/poetry
 
+# Direnv #
+eval "$(direnv hook zsh)"
+
+# Zoxide #
+eval "$(zoxide init zsh)"
